@@ -18,7 +18,7 @@ function App() {
       <input
         type="checkbox"
         checked={checkBoxStatus}
-        onClick={() => setCheckBoxStatus(true)}
+        onClick={() => setCheckBoxStatus(!checkBoxStatus)}
       />
     </div>
   );
