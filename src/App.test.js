@@ -1,8 +1,6 @@
-import { render, screen, fireEvent } from "@testing-library/react";
-import { logRoles } from "@testing-library/react";
+import { render, screen, fireEvent, logRoles } from "@testing-library/react";
 
-import App from "./App";
-import { replaceCameWithSpaces } from "./App";
+import { replaceCameWithSpaces, App } from "./App";
 
 test("initial conditions", () => {
   render(<App />);
