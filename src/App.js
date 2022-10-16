@@ -1,6 +1,10 @@
 import { useState } from "react";
 import "./App.css";
 
+export function replaceCameWithSpaces(colorName) {
+  return colorName.replace(/\B([A-Z])\B/g, " $1");
+}
+
 function App() {
   const [buttonCollor, setButtonColor] = useState("red");
   const [buttonCollorLabel, setButtonColorLabel] = useState("blue");

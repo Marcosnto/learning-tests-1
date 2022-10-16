@@ -1,6 +1,8 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import { logRoles } from "@testing-library/react";
+
 import App from "./App";
+import { replaceCameWithSpaces } from "./App";
 
 test("initial conditions", () => {
   render(<App />);
@@ -52,4 +54,18 @@ test("button is gray when disabled", () => {
 
   expect(colorButton).not.toBeEnabled();
   expect(colorButton).toHaveStyle({ backgroundColor: "gray" });
+});
+
+describe("spaces before camel-case capital letters", () => {
+  test("Works for no inner capital letters", () => {
+    expect(replaceCameWithSpaces("Red")).toBe("Red");
+  });
+
+  test("Works for one inner capital letters", () => {
+    expect(replaceCameWithSpaces("MidnightBlue")).toBe("Midnight Blue");
+  });
+
+  test("Works for multiple inner capital letters", () => {
+    expect(replaceCameWithSpaces("MediumVioletRed")).toBe("Medium Violet Red");
+  });
 });
