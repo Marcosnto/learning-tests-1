@@ -3,23 +3,61 @@ import "./App.css";
 
 function App() {
   const [buttonCollor, setButtonColor] = useState("red");
+  const [buttonCollorLabel, setButtonColorLabel] = useState("blue");
+
   const [checkBoxStatus, setCheckBoxStatus] = useState(false);
-  const newButtonColor = buttonCollor === "red" ? "blue" : "red";
+
+  const changeButtonLabel = () => {
+    switch (buttonCollorLabel) {
+      case "red":
+        setButtonColorLabel("blue");
+        break;
+      case "blue":
+        setButtonColorLabel("red");
+        break;
+      default:
+        setButtonColorLabel("blue");
+        break;
+    }
+  };
+
+  const changeButtonColor = color => {
+    switch (color) {
+      case "red":
+        setButtonColor("blue");
+        changeButtonLabel();
+        break;
+      case "blue":
+        setButtonColor("red");
+        changeButtonLabel();
+        break;
+      case "gray":
+        setButtonColor("gray");
+        break;
+      default:
+        setButtonColor(buttonCollor);
+        changeButtonLabel();
+        break;
+    }
+  };
 
   return (
     <div>
       <button
         style={{ backgroundColor: buttonCollor, color: "white" }}
-        onClick={() => setButtonColor(newButtonColor)}
+        onClick={() => changeButtonColor(buttonCollor)}
         disabled={checkBoxStatus}
       >
-        Change to {newButtonColor}
+        Change to {buttonCollorLabel}
       </button>
       <input
         type="checkbox"
         checked={checkBoxStatus}
         id="disable-button-checkbox"
-        onClick={() => setCheckBoxStatus(!checkBoxStatus)}
+        onChange={e => {
+          setCheckBoxStatus(e.target.checked);
+          changeButtonColor(e.target.checked ? "gray" : buttonCollor);
+        }}
       />
       <label htmlFor="disable-button-checkbox">Disable button</label>
     </div>
