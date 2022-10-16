@@ -6,33 +6,33 @@ export function replaceCameWithSpaces(colorName) {
 }
 
 function App() {
-  const [buttonCollor, setButtonColor] = useState("red");
-  const [buttonCollorLabel, setButtonColorLabel] = useState("blue");
+  const [buttonCollor, setButtonColor] = useState("MediumVioletRed");
+  const [buttonCollorLabel, setButtonColorLabel] = useState("MidnightBlue");
 
   const [checkBoxStatus, setCheckBoxStatus] = useState(false);
 
   const changeButtonLabel = () => {
     switch (buttonCollorLabel) {
       case "red":
-        setButtonColorLabel("blue");
+        setButtonColorLabel("MidnightBlue");
         break;
-      case "blue":
-        setButtonColorLabel("red");
+      case "MidnightBlue":
+        setButtonColorLabel("MediumVioletRed");
         break;
       default:
-        setButtonColorLabel("blue");
+        setButtonColorLabel("MidnightBlue");
         break;
     }
   };
 
   const changeButtonColor = color => {
     switch (color) {
-      case "red":
-        setButtonColor("blue");
+      case "MediumVioletRed":
+        setButtonColor("MidnightBlue");
         changeButtonLabel();
         break;
-      case "blue":
-        setButtonColor("red");
+      case "MidnightBlue":
+        setButtonColor("MediumVioletRed");
         changeButtonLabel();
         break;
       case "gray":
