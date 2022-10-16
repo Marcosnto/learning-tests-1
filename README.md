@@ -4,6 +4,6 @@ This project is for to put in pratice the knowlogy learn in the udemy course "Te
 
 Tecnologies used: 
 
-- React
+- React with create-react-app
 - Jest
 - React Testing Library 
